@@ -10,19 +10,19 @@ class IPFS {
 	private $gatewayIP;
 	private $gatewayPort;
 	private $gatewayApiPort;
-    private $gatewayProtocol;
+    	private $gatewayProtocol;
 
 	function __construct($ip = "localhost", $port = "8080", $apiPort = "5001", $protocol = "http") {
 		$this->gatewayIP      = $ip;
 		$this->gatewayPort    = $port;
 		$this->gatewayApiPort = $apiPort;
-        $this->gatewayProtocol= $protocol;
+        	$this->gatewayProtocol= $protocol;
 	}
 
 	public function cat ($hash) {
 		$ip = $this->gatewayIP;
 		$port = $this->gatewayPort;
-        $protocol = $this->gatewayProtocol;
+        	$protocol = $this->gatewayProtocol;
 		return $this->curl("$protocol://$ip:$port/ipfs/$hash");
 
 	}
@@ -30,7 +30,7 @@ class IPFS {
 	public function add ($content) {
 		$ip = $this->gatewayIP;
 		$port = $this->gatewayApiPort;
-        $protocol = $this->gatewayProtocol;
+        	$protocol = $this->gatewayProtocol;
 
 		$req = $this->curl("$protocol://$ip:$port/api/v0/add?stream-channels=true", $content);
 		$req = json_decode($req, TRUE);
@@ -41,7 +41,7 @@ class IPFS {
 	public function ls ($hash) {
 		$ip = $this->gatewayIP;
 		$port = $this->gatewayApiPort;
-        $protocol = $this->gatewayProtocol;
+        	$protocol = $this->gatewayProtocol;
 
 		$response = $this->curl("$protocol://$ip:$port/api/v0/ls/$hash");
 
@@ -53,7 +53,7 @@ class IPFS {
 	public function size ($hash) {
 		$ip = $this->gatewayIP;
 		$port = $this->gatewayApiPort;
-        $protocol = $this->gatewayProtocol;
+        	$protocol = $this->gatewayProtocol;
 
 		$response = $this->curl("$protocol://$ip:$port/api/v0/object/stat/$hash");
 		$data = json_decode($response, TRUE);
@@ -65,7 +65,7 @@ class IPFS {
 		
 		$ip = $this->gatewayIP;
 		$port = $this->gatewayApiPort;
-        $protocol = $this->gatewayProtocol;
+        	$protocol = $this->gatewayProtocol;
 
 		$response = $this->curl("$protocol://$ip:$port/api/v0/pin/add/$hash");
 		$data = json_decode($response, TRUE);
@@ -77,7 +77,7 @@ class IPFS {
 		
 		$ip = $this->gatewayIP;
 		$port = $this->gatewayApiPort;
-        $protocol = $this->gatewayProtocol;
+        	$protocol = $this->gatewayProtocol;
 
 		$response = $this->curl("$protocol://$ip:$port/api/v0/pin/rm/$hash");
 		$data = json_decode($response, TRUE);
@@ -89,7 +89,7 @@ class IPFS {
 		
 		$ip = $this->gatewayIP;
 		$port = $this->gatewayApiPort;
-        $protocol = $this->gatewayProtocol;
+        	$protocol = $this->gatewayProtocol;
 
 		$response = $this->curl("$protocol://$ip:$port/api/v0/version");
 		$data = json_decode($response, TRUE);
@@ -101,7 +101,7 @@ class IPFS {
 		
 		$ip = $this->gatewayIP;
 		$port = $this->gatewayApiPort;
-        $protocol = $this->gatewayProtocol;
+        	$protocol = $this->gatewayProtocol;
 
 		$response = $this->curl("$protocol://$ip:$port/api/v0/id");
 		$data = json_decode($response, TRUE);
